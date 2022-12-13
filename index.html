@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Real-Time Neural Light Field on Mobile Devices</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="./resources/bootstrap.min.css">
+    <link rel="stylesheet" href="./resources/font-awesome.min.css">
+    <link rel="stylesheet" href="./resources/codemirror.min.css">
+    <link rel="stylesheet" href="./resources/app.css">
+    <link rel="stylesheet" href="./resources/bootstrap.min(1).css">
+
+    <script src="./resources/jquery.min.js"></script>
+    <script src="./resources/bootstrap.min.js"></script>
+    <script src="./resources/codemirror.min.js"></script>
+    <script src="./resources/clipboard.min.js"></script>
+
+    <script src="./resources/app.js"></script>
+</head>
+
+
+<body>
+    <div class="container" id="main">
+        <div class="row">
+            <h2 class="col-md-12 text-center">
+                Real-Time Neural Light Field on Mobile Devices<br>
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li>
+                        <a href="https://www.linkedin.com/in/junli-cao-5165b41a1/">
+                            Junli Cao
+                        </a>
+                        <br>Snap Inc.
+                    </li>
+                    <li>
+                        <a href="http://huanwang.tech/">
+                            Huan Wang
+                        </a>
+                        <br>Northeastern Univeristy
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/pashachemerys/">
+                            Pavlo Chemerys
+                        </a>
+                        <br>Snap Inc.
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/shakhrayv/?originalSubdomain=uk">
+                            Vladislav Shakhrai
+                        </a>
+                        <br>Snap Inc.
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/erichuju/">
+                            Ju Hu
+                        </a>
+                        <br>Snap Inc.
+                    </li><br>
+                    <li>
+                        <a href="https://coe.northeastern.edu/people/fu-yun/">
+                            Yun Fu
+                        </a>
+                        <br>Northeastern Unviersity
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/denys-makoviichuk-2219a72b/">
+                            Denys Makoviichuk
+                        </a>
+                        <br>Snap Inc.
+                    </li>
+                    <li>
+                        <a href="http://www.stulyakov.com/">
+                            Sergey Tulyakov
+                        </a>
+                        <br>Snap Inc.
+                    </li>
+                    <li>
+                        <a href="https://alanspike.github.io/">
+                            Jian Ren
+                        </a>
+                        <br>Snap Inc.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 text-center">
+                <ul class="nav nav-pills nav-justified">
+                    <li>
+                        <a href="https://github.com/snap-research/MobileR2L">
+                            <img src="resources/paper-min.png" height="60px">
+                            <h4><strong>Paper (Coming Soon)</strong></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/snap-research/MobileR2L">
+                            <img src="resources/github.png" height="60px" />
+                            <h4><strong>Code (Coming Soon)</strong></h4>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Abstract
+                </h3>
+                <p class="text-justify">
+                    Recent efforts in Neural Rendering Fields (NeRF) have shown impressive results on novel view
+                    synthesis by utilizing implicit neural representation to represent 3D scenes.
+                    Due to the process of volumetric rendering, the inference speed for NeRF is extremely slow, limiting
+                    the application scenarios of utilizing NeRF on resource-constrained hardware, such as mobile
+                    devices.
+                    Many works have been conducted to reduce the latency of running NeRF models.
+                    However, most of them still require high-end GPU for acceleration or extra storage memory, which is
+                    all unavailable on mobile devices.
+                    Another emerging direction utilizes the neural light field (NeLF) for speedup, as only one forward
+                    pass is performed on a ray to predict the pixel color.
+                    Nevertheless, to reach a similar rendering quality as NeRF, the network in NeLF is designed with
+                    intensive computation, which is not mobile-friendly.
+                    In this work, we propose an efficient network that runs in real-time on mobile devices for neural
+                    rendering.
+                    We follow the setting of NeLF to train our network.
+                    Unlike existing works, we introduce a novel network architecture that runs efficiently on mobile
+                    devices with low latency and small size, i.e., saving 15x ~ 24x storage
+                    compared with MobileNeRF.
+                    Our model achieves high-resolution generation while maintaining real-time inference for both
+                    synthetic and real-world scenes on mobile devices, e.g., 18.04ms (iPhone 13) for rendering
+                    one 1008x756 image of real 3D scenes.
+                    Additionally, we achieve similar image quality as NeRF and better quality than MobileNeRF (PSNR
+                    26.15 vs. 25.91 on the real-world forward-facing dataset)
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Real-World Application: Shoe Virtual Try-On.
+                </h3>
+            </div>
+
+            <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-6">
+                    <video id="v1" width="40%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/shoe/shoe-1_record_mp4.mp4" type="video/mp4" />
+                    </video>
+                    <video id="v2" width="38.2%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/shoe/shoe_1.mp4" type="video/mp4" />
+                    </video>
+                </div>
+                <div class="col-md-6">
+                    <video id="v3" width="40%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/shoe/shoe-2_record_mp4.mp4" type="video/mp4" />
+                    </video>
+                    <video id="v4" width="38.2%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/shoe/shoe_2.mp4" type="video/mp4" />
+                    </video>
+                </div>
+            </div>
+            <br>
+            <br><br>
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Results on Synthetic 360<sup>o</sup> Dataset.
+                </h3>
+            </div>
+
+            <div class="col-md-8 col-md-offset-2">
+                <h4><i>Left Two:</i> Chair; <i>Right Two:</i> Drum.</h4>
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-6">
+                    <video id="v1" width="40%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/synthetic/chair_record_mp4.mp4" type="video/mp4" />
+                    </video>
+                    <video id="v2" width="38.2%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/synthetic/chair.mp4" type="video/mp4" />
+                    </video>
+                </div>
+                <div class="col-md-6">
+                    <video id="v3" width="40%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/synthetic/drum_record_mp4.mp4" type="video/mp4" />
+                    </video>
+                    <video id="v4" width="38.2%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/synthetic/drum.mp4" type="video/mp4" />
+                    </video>
+                </div>
+            </div>
+            <br>
+            <br><br>
+
+            <div class="col-md-8 col-md-offset-2">
+                <h4><i>Left Two:</i> Ficus; <i>Right Two:</i> Hotdog.</h4>
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-6">
+                    <video id="v1" width="40%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/synthetic/ficus_record_mp4.mp4" type="video/mp4" />
+                    </video>
+                    <video id="v2" width="38.2%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/synthetic/ficus.mp4" type="video/mp4" />
+                    </video>
+                </div>
+                <div class="col-md-6">
+                    <video id="v3" width="40%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/synthetic/hotdog_record_mp4.mp4" type="video/mp4" />
+                    </video>
+                    <video id="v4" width="38.2%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/synthetic/hotdog.mp4" type="video/mp4" />
+                    </video>
+                </div>
+            </div>
+            <br>
+            <br><br>
+
+            <div class="col-md-8 col-md-offset-2">
+                <h4><i>Left Two:</i> Lego; <i>Right Two:</i> Material.</h4>
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-6">
+                    <video id="v1" width="40%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/synthetic/lego_record_mp4.mp4" type="video/mp4" />
+                    </video>
+                    <video id="v2" width="38.2%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/synthetic/lego.mp4" type="video/mp4" />
+                    </video>
+                </div>
+                <div class="col-md-6">
+                    <video id="v3" width="40%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/synthetic/material_record_mp4.mp4" type="video/mp4" />
+                    </video>
+                    <video id="v4" width="38.2%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/synthetic/material.mp4" type="video/mp4" />
+                    </video>
+                </div>
+            </div>
+            <br>
+            <br><br>
+
+            <div class="col-md-8 col-md-offset-2">
+                <h4><i>Left Two:</i> Mic; <i>Right Two:</i> Ship.</h4>
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-6">
+                    <video id="v1" width="40%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/synthetic/mic_record_mp4.mp4" type="video/mp4" />
+                    </video>
+                    <video id="v2" width="38.2%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/synthetic/mic.mp4" type="video/mp4" />
+                    </video>
+                </div>
+                <div class="col-md-6">
+                    <video id="v3" width="40%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/synthetic/ship_record_mp4.mp4" type="video/mp4" />
+                    </video>
+                    <video id="v4" width="38.2%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/synthetic/ship.mp4" type="video/mp4" />
+                    </video>
+                </div>
+            </div>
+            <br>
+            <br><br>
+
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Results on Forward-facing Dataset.
+                </h3>
+            </div>
+
+            <div class="col-md-8 col-md-offset-2">
+                <h4><i>Left Two:</i> Fern; <i>Right Two:</i> Flower.</h4>
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-6">
+                    <video id="v1" width="40%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/forward_facing/fern_record.mp4" type="video/mp4" />
+                    </video>
+                    <video id="v2" width="38.2%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/forward_facing/fern.mp4" type="video/mp4" />
+                    </video>
+                </div>
+                <div class="col-md-6">
+                    <video id="v3" width="40%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/forward_facing/flower_record.mp4" type="video/mp4" />
+                    </video>
+                    <video id="v4" width="38.2%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/forward_facing/flower.mp4" type="video/mp4" />
+                    </video>
+                </div>
+            </div>
+            <br>
+            <br><br>
+
+            <div class="col-md-8 col-md-offset-2">
+                <h4><i>Left Two:</i> Fortress; <i>Right Two:</i> Horn.</h4>
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-6">
+                    <video id="v1" width="40%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/forward_facing/fortress_record.mp4" type="video/mp4" />
+                    </video>
+                    <video id="v2" width="38.2%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/forward_facing/fortress.mp4" type="video/mp4" />
+                    </video>
+                </div>
+                <div class="col-md-6">
+                    <video id="v3" width="40%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/forward_facing/horn_record.mp4" type="video/mp4" />
+                    </video>
+                    <video id="v4" width="38.2%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/forward_facing/horn.mp4" type="video/mp4" />
+                    </video>
+                </div>
+            </div>
+            <br>
+            <br><br>
+
+            <div class="col-md-8 col-md-offset-2">
+                <h4><i>Left Two:</i> Leaves; <i>Right Two:</i> Orchids.</h4>
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-6">
+                    <video id="v1" width="40%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/forward_facing/leaves_record.mp4" type="video/mp4" />
+                    </video>
+                    <video id="v2" width="38.2%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/forward_facing/leaves.mp4" type="video/mp4" />
+                    </video>
+                </div>
+                <div class="col-md-6">
+                    <video id="v3" width="40%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/forward_facing/orchids_record.mp4" type="video/mp4" />
+                    </video>
+                    <video id="v4" width="38.2%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/forward_facing/orchids.mp4" type="video/mp4" />
+                    </video>
+                </div>
+            </div>
+            <br>
+            <br><br>
+
+            <div class="col-md-8 col-md-offset-2">
+                <h4><i>Left Two:</i> Room; <i>Right Two:</i> Trex.</h4>
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-6">
+                    <video id="v1" width="40%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/forward_facing/room_record.mp4" type="video/mp4" />
+                    </video>
+                    <video id="v2" width="38.2%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/forward_facing/room.mp4" type="video/mp4" />
+                    </video>
+                </div>
+                <div class="col-md-6">
+                    <video id="v3" width="40%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/forward_facing/trex_record.mp4" type="video/mp4" />
+                    </video>
+                    <video id="v4" width="38.2%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/forward_facing/trex.mp4" type="video/mp4" />
+                    </video>
+                </div>
+            </div>
+            <br>
+            <br><br>
+
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Citation
+                </h3>
+                <div class="form-group col-md-10 col-md-offset-1">
+                    <textarea id="bibtex" class="form-control" readonly="" style="display: none;">
+@artical{cao2022real,
+    author={Cao, Junli and Wang, Huan and Chemerys, Pavlo and Shakhrai, Vladislav and Hu, Ju and Fu, Yun and Makoviichuk, Denys and Tulyakov, Sergey and Ren, Jian},
+    title={Real-Time Neural Light Field on Mobile Devices},
+    year = {2022}
+}</textarea>
+                    <div class="CodeMirror cm-s-default CodeMirror-wrap">
+                        <div
+                            style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 4px; left: 4px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <p style="color:gray; text-align:right">
+                    <a href="http://mgharbi.com/">Website Credits</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
