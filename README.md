@@ -1,5 +1,7 @@
 ## MobileR2L<br><sub>Real-Time Neural Light Field on Mobile Devices</sub>
 
+[arXiv](https://arxiv.org/abs/2212.08057) | [PDF](https://arxiv.org/pdf/2212.08057.pdf)
+
 
 <table cellpadding="0" cellspacing="0" >
 Shoe Virtual Try-on
