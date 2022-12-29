@@ -1,6 +1,6 @@
 ## MobileR2L<br><sub>Real-Time Neural Light Field on Mobile Devices</sub>
 
-[arXiv](https://arxiv.org/abs/2212.08057) | [PDF](https://arxiv.org/pdf/2212.08057.pdf)
+[arXiv](https://arxiv.org/abs/2212.08057) | [PDF](https://arxiv.org/pdf/2212.08057.pdf) | [Web Page](https://snap-research.github.io/MobileR2L/)
 
 
 <table cellpadding="0" cellspacing="0" >
@@ -11,7 +11,7 @@ Shoe Virtual Try-on
   </tr>
 </table>
 
->[Real-Time Neural Light Field on Mobile Devices](https://github.com/snap-research/MobileR2L)<br>
+>[Real-Time Neural Light Field on Mobile Devices](https://snap-research.github.io/MobileR2L/)<br>
 >[Junli Cao](https://www.linkedin.com/in/junli-cao-5165b41a1)<sup>1</sup>, [Huan Wang](http://huanwang.tech)<sup>2</sup>, [Pavlo Chemerys](https://www.linkedin.com/in/pashachemerys/)<sup>1</sup>, [Vladislav Shakhrai](https://www.linkedin.com/in/shakhrayv/?originalSubdomain=uk/)<sup>1</sup>, [Ju Hu](https://www.linkedin.com/in/erichuju/)<sup>1</sup>, [Yun Fu](https://coe.northeastern.edu/people/fu-yun/)<sup>2</sup>, <br>[Denys Makoviichuk](https://www.linkedin.com/in/denys-makoviichuk-2219a72b/)<sup>1</sup>, [Sergey Tulyakov](http://www.stulyakov.com/)<sup>1</sup>, [Jian Ren](https://alanspike.github.io/)<sup>1</sup>  
 ><sup>1</sup>Snap Inc., <sup>2</sup>Northeastern University
 
@@ -60,9 +60,10 @@ This code follows the implementations of [nerf-pytorch](https://github.com/yench
 
 If you find the work helps, please cite our paper:
 ```BibTeX
-@artical{cao2022real,
-    author={Cao, Junli and Wang, Huan and Chemerys, Pavlo and Shakhrai, Vladislav and Hu, Ju and Fu, Yun and Makoviichuk, Denys and Tulyakov, Sergey and Ren, Jian},
-    title={Real-Time Neural Light Field on Mobile Devices},
-    year = {2022}
+@article{cao2022real,
+  title={Real-Time Neural Light Field on Mobile Devices},
+  author={Cao, Junli and Wang, Huan and Chemerys, Pavlo and Shakhrai, Vladislav and Hu, Ju and Fu, Yun and Makoviichuk, Denys and Tulyakov, Sergey and Ren, Jian},
+  journal={arXiv preprint arXiv:2212.08057},
+  year={2022}
 }
 ```
