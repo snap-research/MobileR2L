@@ -9,7 +9,7 @@
 </div>
 
 This repository is for the real-time neural rendering introduced in the following CVPR'23 paper:
-> **[Real-Time Neural Light Field on Mobile Devices](https://snap-research.github.io/R2L/)** \
+> **[Real-Time Neural Light Field on Mobile Devices](https://snap-research.github.io/MobileR2L/)** \
 > Junli Cao <sup>1</sup>, [Huan Wang](http://huanwang.tech/) <sup>2</sup>, Pavlo Chemerys<sup>1</sup>, Vladislav Shakhrai<sup>1</sup>, Ju Hu<sup>1</sup>,  [Yun Fu](http://www1.ece.neu.edu/~yunfu/) <sup>2</sup>, Denys Makoviichuk<sup>1</sup>,  [Sergey Tulyakov](http://www.stulyakov.com/) <sup>1</sup>, [Jian Ren](https://alanspike.github.io/) <sup>1</sup> 
 >
 > <sup>1</sup> Snap Inc. <sup>2</sup> Northeastern University 
@@ -177,6 +177,10 @@ We provide the snapcodes for the AR lens in Snapchat. Scan it with Snapchat and 
 <img src="figs/lego-surface.png" width="200" height="200" />
 <img src="figs/mic-surface.png" width="200" height="200" />
 </div>
+
+# Future Plan
+We are working on releasing a tutorial on how to utilize our method to create your own AR assets and lens that is fully compatiable with [SnapML](https://docs.snap.com/lens-studio/references/guides/lens-features/machine-learning/ml-overview). 
+
 
 # Acknowledgement
 
