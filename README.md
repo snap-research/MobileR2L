@@ -29,7 +29,7 @@ Recent efforts in Neural Rendering Fields (NeRF) have shown impressive results o
 <div align="center">
 <img src="figs/Lego-Tracking.gif" width="200" height="400" />
 <img src="figs/blue-.gif" width="200" height="400" />
-<img src="figs/shoe-1.gif" width="200" height="400" />
+<img src="figs/shoe_1.gif" width="200" height="400" />
 </div>
 
 # Overview
