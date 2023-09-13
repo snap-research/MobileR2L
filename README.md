@@ -33,7 +33,7 @@ Recent efforts in Neural Rendering Fields (NeRF) have shown impressive results o
 </div>
 
 # Update
-- [x] 09/13/2023: we released the tutorial of building your own lens by utilizing *SnapML* and *Lens Studio* [here](https://github.com/Snapchat/snapml-templates/tree/main/Neural%20Rendering) 
+- [x] 09/13/2023: we released the tutorial of building your own lens by utilizing [SnapML](https://docs.snap.com/lens-studio/references/guides/lens-features/machine-learning/ml-overview) and [Lens Studio](https://ar.snap.com/lens-studio-dl?utm_source=GoogleSEM&utm_medium=PAIDPLATFORM&utm_campaign=LensStudio_Brand_P0&utm_term=AR_ProductiveInnovators_CareerArtists&utm_content=LS_ProductPage&gclid=CjwKCAjwu4WoBhBkEiwAojNdXmCEiYGlvPgN1YQGTyUaCReBgasW66baB418jGOzlyql1W3eprR7fhoChuwQAvD_BwE). Check it out [here](https://github.com/Snapchat/snapml-templates/tree/main/Neural%20Rendering)! 
 
 # Overview
 This repo contains the codebases for both the teacher and student models. We use the public repo [ngp_pl](https://github.com/kwea123/ngp_pl) as the teacher for more efficient pseudo data distillation(instead of NeRF and MipNeRF as discussed in the paper).
