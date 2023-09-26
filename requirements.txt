@@ -22,7 +22,7 @@ scikit_learn==0.24.2
 uutils==0.0.3
 lpips
 kornia
-einpos
+einops
 jaxtyping
 pretty_traceback
 easydict
