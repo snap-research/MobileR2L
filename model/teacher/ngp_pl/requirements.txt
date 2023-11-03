@@ -10,5 +10,5 @@ jupyter
 scipy
 pymcubes
 trimesh
-dearpyguipip 
+dearpygui
 torchmetrics==0.11.4
